@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useShell } from "@/composables/useShell";
-import { useWorkoutLibrary } from "@/features/workouts/composables/useWorkoutLibrary";
-import WorkoutLibrary from "@/features/workouts/WorkoutLibrary.vue";
-import PlanEditor from "@/features/workouts/PlanEditor.vue";
-import TimerScreen from "@/features/workouts/TimerScreen.vue";
+import { useNavigation } from "@/composables/useNavigation";
+import { useWorkoutLibrary } from "@/composables/useWorkoutLibrary";
+import WorkoutLibrary from "@/components/features/workouts/WorkoutLibrary.vue";
+import PlanEditor from "@/components/features/workouts/PlanEditor.vue";
+import TimerScreen from "@/components/features/workouts/TimerScreen.vue";
 
-const { screen, activePlanId } = useShell();
+const { screen, activePlanId } = useNavigation();
 const { getPlan } = useWorkoutLibrary();
 
 const activePlan = computed(() => (activePlanId.value ? getPlan(activePlanId.value) : undefined));

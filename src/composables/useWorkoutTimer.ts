@@ -1,6 +1,6 @@
 import { computed, ref } from "vue";
 import { tryOnScopeDispose, useIntervalFn, useWakeLock } from "@vueuse/core";
-import type { WorkoutPlan } from "@/features/workouts/types";
+import type { WorkoutPlan } from "@/types/workout";
 import { formatClock } from "@/lib/time";
 
 export type TimerColorKind = "countdown" | "run" | "pause" | "done";

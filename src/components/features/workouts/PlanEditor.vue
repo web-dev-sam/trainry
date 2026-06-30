@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useShell } from "@/composables/useShell";
-import type { WorkoutPlan } from "@/features/workouts/types";
-import { useWorkoutLibrary } from "@/features/workouts/composables/useWorkoutLibrary";
+import { useNavigation } from "@/composables/useNavigation";
+import type { WorkoutPlan } from "@/types/workout";
+import { useWorkoutLibrary } from "@/composables/useWorkoutLibrary";
 import { formatClock } from "@/lib/time";
-import Button from "@/ui/Button.vue";
-import TextField from "@/ui/TextField.vue";
-import NumberStepper from "@/ui/NumberStepper.vue";
-import SegmentRow from "@/features/workouts/SegmentRow.vue";
+import Button from "@/components/ui/Button.vue";
+import TextField from "@/components/ui/TextField.vue";
+import NumberStepper from "@/components/ui/NumberStepper.vue";
+import SegmentRow from "@/components/features/workouts/SegmentRow.vue";
 
 const { plan } = defineProps<{ plan: WorkoutPlan }>();
 
-const { openLibrary, runPlan } = useShell();
+const { openLibrary, runPlan } = useNavigation();
 const library = useWorkoutLibrary();
 
 const totalSeconds = computed(

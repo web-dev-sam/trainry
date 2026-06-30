@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useShell } from "@/composables/useShell";
-import { useWorkoutLibrary } from "@/features/workouts/composables/useWorkoutLibrary";
-import Button from "@/ui/Button.vue";
-import PlanCard from "@/features/workouts/PlanCard.vue";
+import { useNavigation } from "@/composables/useNavigation";
+import { useWorkoutLibrary } from "@/composables/useWorkoutLibrary";
+import Button from "@/components/ui/Button.vue";
+import PlanCard from "@/components/features/workouts/PlanCard.vue";
 
-const { editPlan, runPlan } = useShell();
+const { editPlan, runPlan } = useNavigation();
 const library = useWorkoutLibrary();
 
 function createPlan() {

@@ -1,5 +1,5 @@
 import { useStorage } from "@vueuse/core";
-import type { SegmentKind, WorkoutPlan, WorkoutSegment } from "@/features/workouts/types";
+import type { SegmentKind, WorkoutPlan, WorkoutSegment } from "@/types/workout";
 
 const STORAGE_KEY = "trainry.plans.v1";
 

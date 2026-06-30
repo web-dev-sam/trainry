@@ -6,7 +6,7 @@ type Screen = "library" | "editor" | "run";
 const screen = ref<Screen>("library");
 const activePlanId = ref<string>();
 
-export function useShell() {
+export function useNavigation() {
   function openLibrary() {
     screen.value = "library";
   }

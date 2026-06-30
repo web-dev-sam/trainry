@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import type { WorkoutPlan } from "@/features/workouts/types";
+import type { WorkoutPlan } from "@/types/workout";
 import { formatClock } from "@/lib/time";
-import Card from "@/ui/Card.vue";
-import Button from "@/ui/Button.vue";
+import Card from "@/components/ui/Card.vue";
+import Button from "@/components/ui/Button.vue";
 
 const { plan } = defineProps<{ plan: WorkoutPlan }>();
 

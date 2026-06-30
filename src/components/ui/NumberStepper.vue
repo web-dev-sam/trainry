@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { cn } from "@/lib/cn";
-import Button from "@/ui/Button.vue";
+import Button from "@/components/ui/Button.vue";
 
 const {
   min = 0,

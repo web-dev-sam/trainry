@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { SegmentKind, WorkoutSegment } from "@/features/workouts/types";
+import type { SegmentKind, WorkoutSegment } from "@/types/workout";
 import { cn } from "@/lib/cn";
-import Button from "@/ui/Button.vue";
-import NumberStepper from "@/ui/NumberStepper.vue";
+import Button from "@/components/ui/Button.vue";
+import NumberStepper from "@/components/ui/NumberStepper.vue";
 
 const {
   segment,

@@ -1,19 +1,16 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useShell } from "@/composables/useShell";
-import type { WorkoutPlan } from "@/features/workouts/types";
-import {
-  type TimerColorKind,
-  useWorkoutTimer,
-} from "@/features/workouts/composables/useWorkoutTimer";
+import { useNavigation } from "@/composables/useNavigation";
+import type { WorkoutPlan } from "@/types/workout";
+import { type TimerColorKind, useWorkoutTimer } from "@/composables/useWorkoutTimer";
 import { formatClock } from "@/lib/time";
 import { cn } from "@/lib/cn";
-import Button from "@/ui/Button.vue";
-import TimerDigits from "@/features/workouts/TimerDigits.vue";
+import Button from "@/components/ui/Button.vue";
+import TimerDigits from "@/components/features/workouts/TimerDigits.vue";
 
 const { plan } = defineProps<{ plan: WorkoutPlan }>();
 
-const { openLibrary } = useShell();
+const { openLibrary } = useNavigation();
 const timer = useWorkoutTimer(plan);
 
 const backgrounds: Record<TimerColorKind, string> = {
