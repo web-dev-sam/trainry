@@ -96,7 +96,7 @@ These rules prevent *drift*. Each targets a default that's plausibly wrong and, 
   - **Presentational components** — props/slots only, no domain knowledge, but too feature-specific for `ui/`.
 - **Primitive purity covers names + values, not just logic.** No domain-flavoured `variant`s (`sprout`); use semantic names (`success`, `accent`). A primitive consumes only the **semantic token layer** (`--primary`, `--border`, `--muted`…), never the raw brand palette — it must survive a completely different palette.
 - **Reuse drives extraction; over-abstraction is the enemy, not pre-generalisation.** Anything that might *sensibly* be reused later — even a year later — earns its own component/function. Extract for plausible reuse; don't contort an API for reuse that will never come.
-- **The app root is a shell, not a screen.** It wires layout + global elements only (header, nav, global overlays). No domain state at the root.
+- **The app root is minimal.** It wires layout + global elements only (header, nav, global overlays). No domain state at the root.
 
 ## Type safety & contracts
 

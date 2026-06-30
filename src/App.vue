@@ -1,37 +1,34 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { useDark, useToggle } from "@vueuse/core";
+import { computed } from "vue";
+import { useShell } from "@/composables/useShell";
+import { useWorkoutLibrary } from "@/features/workouts/composables/useWorkoutLibrary";
+import WorkoutLibrary from "@/features/workouts/WorkoutLibrary.vue";
+import PlanEditor from "@/features/workouts/PlanEditor.vue";
+import TimerScreen from "@/features/workouts/TimerScreen.vue";
 
-const isDark = useDark();
-const toggleDark = useToggle(isDark);
+const { screen, activePlanId } = useShell();
+const { getPlan } = useWorkoutLibrary();
 
-const count = ref(0);
+const activePlan = computed(() => (activePlanId.value ? getPlan(activePlanId.value) : undefined));
 </script>
 
 <template>
-  <main
-    class="grid min-h-svh place-items-center bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100"
-  >
-    <div class="flex flex-col items-center gap-6 text-center">
-      <h1 class="text-4xl font-semibold tracking-tight">trainry</h1>
-      <p class="text-gray-500 dark:text-gray-400">Vue 3.5 · VueUse · Tailwind · TypeScript</p>
+  <div class="h-full w-full overflow-hidden bg-background text-foreground">
+    <PlanEditor v-if="screen === 'editor' && activePlan" :plan="activePlan" />
+    <TimerScreen
+      v-else-if="screen === 'run' && activePlan"
+      :key="activePlan.id"
+      :plan="activePlan"
+    />
+    <WorkoutLibrary v-else />
 
-      <div class="flex items-center gap-3">
-        <button
-          type="button"
-          class="rounded-lg bg-violet-600 px-4 py-2 font-medium text-white transition hover:bg-violet-500"
-          @click="count++"
-        >
-          count is {{ count }}
-        </button>
-        <button
-          type="button"
-          class="rounded-lg border border-gray-300 px-4 py-2 font-medium transition hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800"
-          @click="toggleDark()"
-        >
-          {{ isDark ? "light" : "dark" }}
-        </button>
-      </div>
+    <!-- Landscape-first: nudge phones held upright. -->
+    <div
+      class="fixed inset-0 z-50 hidden flex-col items-center justify-center gap-3 bg-background/95 p-8 text-center portrait:max-md:flex"
+    >
+      <p class="text-5xl">↻</p>
+      <p class="text-lg font-medium">Rotate your device</p>
+      <p class="text-sm text-muted-foreground">trainry works best in landscape.</p>
     </div>
-  </main>
+  </div>
 </template>
