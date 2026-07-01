@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useNavigation } from "@/composables/useNavigation";
+import { useLandscapeLock } from "@/composables/useLandscapeLock";
 import { useWorkoutLibrary } from "@/composables/useWorkoutLibrary";
 import WorkoutLibrary from "@/components/features/workouts/WorkoutLibrary.vue";
 import PlanEditor from "@/components/features/workouts/PlanEditor.vue";
@@ -8,6 +9,8 @@ import TimerScreen from "@/components/features/workouts/TimerScreen.vue";
 
 const { screen, activePlanId } = useNavigation();
 const { getPlan } = useWorkoutLibrary();
+
+useLandscapeLock();
 
 const activePlan = computed(() => (activePlanId.value ? getPlan(activePlanId.value) : undefined));
 </script>

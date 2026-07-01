@@ -10,6 +10,7 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       injectRegister: "auto",
+      devOptions: { enabled: true },
       includeAssets: ["favicon.svg", "apple-touch-icon.png"],
       manifest: {
         name: "trainry — interval timer",
