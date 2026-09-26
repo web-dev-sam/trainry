@@ -1,0 +1,17 @@
+{
+  "title": "Trainry",
+  "tagline": "A training timer app: build workout plans out of timed segments and run them on a big timer screen. ⏱️",
+  "sections": [
+    {
+      "title": "How to run it",
+      "body": [
+        "Live at [trainry.webry.com](https://trainry.webry.com/).",
+        ""
+      ],
+      "numbered": [
+        "`pnpm install`",
+        "`pnpm dev`"
+      ]
+    }
+  ]
+}
