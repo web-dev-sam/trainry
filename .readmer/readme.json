@@ -13,5 +13,6 @@
         "`pnpm dev`"
       ]
     }
-  ]
+  ],
+  "why": "To make muscle stamina progress visible by following exact hold/pause times without fiddling with a timer."
 }

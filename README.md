@@ -9,6 +9,9 @@ _A training timer app: build workout plans out of timed segments and run them on
 
 &nbsp;
 
+## Why does this exist?
+To make muscle stamina progress visible by following exact hold/pause times without fiddling with a timer.
+
 ## How to run it
 
 Live at [trainry.webry.com](https://trainry.webry.com/).
